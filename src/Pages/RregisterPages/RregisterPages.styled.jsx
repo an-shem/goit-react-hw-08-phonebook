@@ -12,12 +12,13 @@ export const Section = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   text-align: center;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 30px;
+  line-height: 32px;
   letter-spacing: 0.03em;
   padding-bottom: 6px;
-  border-bottom: 1px solid #757575;
+  border-bottom: 1px solid #4a3934;
+  color: #4a3934;
 `;

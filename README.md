@@ -1,4 +1,4 @@
-# goit-react-hw-03-phonebook
+# goit-react-hw-08-phonebook
 
 Дз-3 ---Телефонная книга
 

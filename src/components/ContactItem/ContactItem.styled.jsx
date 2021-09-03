@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 
 export const Contact = styled.li`
   display: flex;
+  padding: 10px;
   justify-content: space-between;
   align-items: center;
   font-weight: normal;
   font-size: 18px;
   line-height: 1.167;
   letter-spacing: 0.01em;
-  color: #272727;
+  border: 1px solid #4a3934;
 
   &:not(:last-child) {
     margin-bottom: 8px;
@@ -18,24 +19,17 @@ export const Contact = styled.li`
 export const Text = styled.span`
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
+  color: #4a3934;
 `;
 
 export const DeleteButton = styled.button`
-  padding: 8px 10px;
-  background: #e5e3e9;
-  border: none;
-  border-radius: 50%;
+  color: #4a3934ac;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.03em;
+  background: inherit;
+  border: none;
 
   &:hover {
-    background: #e96161;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    color: #fff;
+    color: #ca5757;
   }
 `;
 
@@ -45,5 +39,12 @@ export const DataWrap = styled.span`
 export const PhoneLink = styled.a`
   padding: 2px;
   text-decoration: none;
-  color: #06406f7a;
+`;
+
+export const PhoneLinkText = styled.span`
+  color: #6e4f40a0;
+
+  &:hover {
+    color: #6e4f40;
+  }
 `;

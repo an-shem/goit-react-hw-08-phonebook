@@ -35,7 +35,7 @@ export const LabelName = styled.span`
   margin-bottom: 8px;
 `;
 
-export const AddButton = styled.button`
+export const LoginButton = styled.button`
   width: 160px;
   height: 40px;
   margin: 0 auto;
