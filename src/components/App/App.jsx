@@ -9,7 +9,7 @@ import PrivateRoute from '../../components/PrivateRoute.js';
 import PublicRoute from '../../components/PublicRoute';
 import { AppWrapper, Container } from './App.styled';
 
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -43,6 +43,7 @@ export default function App() {
               <PrivateRoute path="/contacts">
                 <ContactsPages />
               </PrivateRoute>
+              <Redirect to="/contacts" />
             </Switch>
             <Toaster
               position="top-center"
