@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as contactsOperations from '../../redux/contactsOperations';
@@ -9,8 +11,17 @@ export default function ContactForm() {
   const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
   const history = useHistory();
+  const goToContacts = useRef(false);
 
-  const handleSubmit = e => {
+  useEffect(() => {
+    if (!goToContacts.current) {
+      goToContacts.current = true;
+      return;
+    }
+    history.push('/contacts');
+  }, [history, contacts]);
+
+  const handleSubmit = async e => {
     e.preventDefault();
     const name = e.target.name.value;
     const number = e.target.number.value;
@@ -33,8 +44,7 @@ export default function ContactForm() {
       name,
       number,
     };
-    dispatch(contactsOperations.setContactApi(newContact));
-    history.push('/contacts');
+    dispatch(contactsOperations.setContact(newContact));
     reset(e);
   };
 

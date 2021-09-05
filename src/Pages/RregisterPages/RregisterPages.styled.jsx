@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
@@ -21,4 +22,17 @@ export const Title = styled.h1`
   padding-bottom: 6px;
   border-bottom: 1px solid #4a3934;
   color: #4a3934;
+`;
+
+export const LoginLink = styled(Link)`
+  margin: 40px auto;
+  font-size: 18px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+  color: #757575;
+  cursor: pointer;
+
+  &:hover {
+    color: #77aad4;
+  }
 `;

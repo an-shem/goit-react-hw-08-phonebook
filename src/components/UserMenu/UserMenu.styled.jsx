@@ -8,7 +8,7 @@ export const UserMenuWrap = styled.div`
 `;
 
 export const UserEmail = styled.span`
-  margin-right: 4px;
+  margin-right: 60px;
   font-style: italic;
   font-weight: 400;
   font-size: 24px;
@@ -33,8 +33,4 @@ export const LogoutButton = styled.button`
   &:hover {
     color: #77aad4;
   }
-`;
-
-export const ButtonTitel = styled.span`
-  margin-right: 2px;
 `;

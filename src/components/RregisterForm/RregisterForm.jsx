@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/authUser/authUserOperations';
-// import * as contactsSelectors from '../../redux/contacts-selectors.js';
 import {
   Form,
   Label,
@@ -8,7 +7,6 @@ import {
   LabelName,
   RegisterButton,
 } from './RregisterForm.styled';
-// import toast from 'react-hot-toast';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -18,10 +16,6 @@ export default function ContactForm() {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-
-    console.log('name :>> ', name);
-    console.log('email :>> ', email);
-    console.log('password :>> ', password);
 
     dispatch(register({ name, email, password }));
     reset(e);
@@ -47,13 +41,7 @@ export default function ContactForm() {
       </Label>
       <Label>
         <LabelName>Email</LabelName>
-        <Input
-          type="email"
-          name="email"
-          // pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-          // title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-          required
-        />
+        <Input type="email" name="email" required />
       </Label>
       <Label>
         <LabelName>Password</LabelName>
@@ -62,6 +50,7 @@ export default function ContactForm() {
           name="password"
           minlength="7"
           autocomplete="off"
+          placeholder="at least 7 characters ..."
           required
         />
       </Label>
@@ -69,9 +58,3 @@ export default function ContactForm() {
     </Form>
   );
 }
-
-// {
-//   "name": "Adrian Cross",
-//   "email": "across@mail.com",
-//   "password": "examplepassword"
-// }

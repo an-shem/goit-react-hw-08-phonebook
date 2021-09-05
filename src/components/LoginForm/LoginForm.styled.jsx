@@ -39,6 +39,7 @@ export const LoginButton = styled.button`
   width: 160px;
   height: 40px;
   margin: 0 auto;
+  font-family: inherit;
   font-size: 18px;
   line-height: 1.167;
   letter-spacing: 0.01em;

@@ -7,7 +7,7 @@ export const HeaderWrap = styled.div`
 `;
 export const HeaderMenu = styled.div`
   width: 70%;
-  padding: 8px 20px 0px;
+  padding: 8px 40px 0px;
   display: flex;
   justify-content: space-between;
   font-family: 'Libre Baskerville', serif;
@@ -36,20 +36,6 @@ export const HeaderLoginLink = styled(Link)`
   color: #f2f4f3;
 
   &:hover {
-    /* text-decoration: underline; */
     color: #77aad4;
   }
 `;
-
-// export const HeaderList = styled.ul`
-//   display: flex;
-//   justify-content: space-evenly;
-// `;
-
-// export const HeaderListItem = styled.li`
-//   list-style-type: none;
-
-//   &:not(:last-child) {
-//     margin-right: 30px;
-//   }
-// `;

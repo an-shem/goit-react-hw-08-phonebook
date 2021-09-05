@@ -6,7 +6,9 @@ import ContactItem from '../ContactItem';
 import { ListContact } from './ContactList.styled';
 
 export default function ContactList() {
-  const filteredContacts = useSelector(contactsSelectors.getFilteredContacts);
+  const sortedFilteredContacts = useSelector(
+    contactsSelectors.getSortedFilteredContacts,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export default function ContactList() {
 
   return (
     <ListContact>
-      {filteredContacts.map(contact => (
+      {sortedFilteredContacts.map(contact => (
         <ContactItem key={contact.id} contact={contact} />
       ))}
     </ListContact>

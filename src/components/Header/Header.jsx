@@ -1,44 +1,18 @@
 import UserMenu from '../UserMenu';
-import {
-  HeaderWrap,
-  HeaderMenu,
-  HeaderTitel,
-  HeaderList,
-  HeaderListItem,
-  HeaderListItemNav,
-  HeaderNav,
-  HeaderLoginLink,
-} from './Header.styled';
+import { getUserIsLoggedIn } from '../../redux/authUser/authUser-selectors';
+import { HeaderWrap, HeaderMenu, HeaderTitel } from './Header.styled';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const isLoggedIn = useSelector(getUserIsLoggedIn);
+
   return (
     <HeaderWrap>
       <HeaderMenu>
         <HeaderTitel>Phonebook</HeaderTitel>
-        {/* <HeaderNav>
-          <HeaderLoginLink to={`/login`}>Login</HeaderLoginLink>
-        </HeaderNav> */}
-        <UserMenu />
+        {isLoggedIn && <UserMenu />}
       </HeaderMenu>
     </HeaderWrap>
-
-    // <HeaderNav>
-    //   <HeaderList>
-    //     <HeaderListItem>
-    //       <HeaderListItemNav exact to={`/register`}>
-    //         Register
-    //       </HeaderListItemNav>
-    //     </HeaderListItem>
-    //     <HeaderListItem>
-    //       <HeaderListItemNav to={`/login`}>Login</HeaderListItemNav>
-    //     </HeaderListItem>
-    //     <HeaderListItem>
-    //       <HeaderListItemNav exact to={`/contacts`}>
-    //         Contacts
-    //       </HeaderListItemNav>
-    //     </HeaderListItem>
-    //   </HeaderList>
-    // </HeaderNav>
   );
 };
 

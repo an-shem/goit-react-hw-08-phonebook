@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchAllContacts,
-  setContactApi,
-  deleteContactApi,
+  setContact,
+  deleteContact,
 } from '../redux/contactsOperations';
 
 const items = createSlice({
@@ -10,8 +10,8 @@ const items = createSlice({
   initialState: [],
   extraReducers: {
     [fetchAllContacts.fulfilled]: (_, { payload }) => payload,
-    [setContactApi.fulfilled]: (state, { payload }) => [...state, payload],
-    [deleteContactApi.fulfilled]: (state, { payload }) =>
+    [setContact.fulfilled]: (state, { payload }) => [...state, payload],
+    [deleteContact.fulfilled]: (state, { payload }) =>
       state.filter(contact => contact.id !== payload),
   },
 });

@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as contactsApi from '../services/api';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const fetchAllContacts = createAsyncThunk(
   'contacts/fetchAllContacts',
   async (_, { rejectWithValue }) => {
     try {
-      const allContacts = await contactsApi.getAllContacts();
+      const allContacts = await axios.get('/contacts').then(({ data }) => data);
       return allContacts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -13,24 +14,31 @@ export const fetchAllContacts = createAsyncThunk(
   },
 );
 
-export const setContactApi = createAsyncThunk(
-  'contacts/setContactApi',
+export const setContact = createAsyncThunk(
+  'contacts/setContact',
   async (contactData, { rejectWithValue }) => {
     try {
-      const newContact = await contactsApi.addContact(contactData);
-      return newContact;
+      const { data } = await axios.post('/contacts', contactData);
+      toast.success('Contact added successfully.');
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   },
 );
 
-export const deleteContactApi = createAsyncThunk(
-  'contacts/deleteContactApi',
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContact',
   async (contactId, { rejectWithValue }) => {
     try {
-      const idRemoteContact = await contactsApi.deleteContact(contactId);
-      return idRemoteContact;
+      const { status } = await axios.delete(`/contacts/${contactId}`);
+
+      if (status === 200) {
+        toast.success('Contact successfully deleted.');
+        return contactId;
+      }
+
+      return rejectWithValue();
     } catch (error) {
       return rejectWithValue(error.message);
     }

@@ -10,7 +10,6 @@ export const MyCard = styled.div`
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   overflow-y: scroll;
-  /* scrollbar-width: none; */
 
   &::-webkit-scrollbar {
     width: 0;

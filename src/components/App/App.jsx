@@ -5,72 +5,57 @@ import LoginPages from '../../Pages/LoginPages';
 import RregisterPages from '../../Pages/RregisterPages';
 import Header from '../Header';
 import Card from '../Card';
-
+import PrivateRoute from '../../components/PrivateRoute.js';
+import PublicRoute from '../../components/PublicRoute';
 import { AppWrapper, Container } from './App.styled';
 
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { fetchCurrentUser } from '../../redux/authUser/authUserOperations';
+import { getFetchingCurrentUser } from '../../redux/authUser/authUser-selectors';
 
 export default function App() {
-  return (
-    <AppWrapper>
-      <Header />
-      <Container>
-        <Card>
-          <Switch>
-            <Route path="/register">
-              <RregisterPages />
-            </Route>
-            <Route path="/login">
-              <LoginPages />
-            </Route>
-            <Route path="/contacts/add">
-              <AddContact />
-            </Route>
-            <Route path="/contacts">
-              <ContactsPages />
-            </Route>
-            {/* <Route>
-          <NotFound />
-        </Route> */}
-          </Switch>
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              style: {
-                background: '#363636',
-                color: '#fff',
-              },
-            }}
-          />
-        </Card>
-      </Container>
-    </AppWrapper>
+  const isFetchingCurrentUser = useSelector(getFetchingCurrentUser);
+  const dispatch = useDispatch();
 
-    // <Card>
-    //   <Header />
-    //   <Switch>
-    //     <Route path="/register">
-    //       <RregisterPages />
-    //     </Route>
-    //     <Route path="/login">
-    //       <LoginPages />
-    //     </Route>
-    //     <Route path="/contacts">
-    //       <ContactsPages />
-    //     </Route>
-    //     {/* <Route>
-    //       <NotFound />
-    //     </Route> */}
-    //   </Switch>
-    //   <Toaster
-    //     position="top-center"
-    //     toastOptions={{
-    //       style: {
-    //         background: '#363636',
-    //         color: '#fff',
-    //       },
-    //     }}
-    //   />
-    // </Card>
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
+  return (
+    !isFetchingCurrentUser && (
+      <AppWrapper>
+        <Header />
+        <Container>
+          <Card>
+            <Switch>
+              <PublicRoute path="/register" restricted>
+                <RregisterPages />
+              </PublicRoute>
+              <PublicRoute path="/login" restricted>
+                <LoginPages />
+              </PublicRoute>
+              <PrivateRoute path="/contacts/add">
+                <AddContact />
+              </PrivateRoute>
+              <PrivateRoute path="/contacts">
+                <ContactsPages />
+              </PrivateRoute>
+            </Switch>
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                style: {
+                  background: '#363636',
+                  color: '#fff',
+                },
+              }}
+            />
+          </Card>
+        </Container>
+      </AppWrapper>
+    )
   );
 }

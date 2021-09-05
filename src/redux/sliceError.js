@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchAllContacts,
-  setContactApi,
-  deleteContactApi,
+  setContact,
+  deleteContact,
 } from './contactsOperations';
 
 const error = createSlice({
@@ -10,11 +10,11 @@ const error = createSlice({
   initialState: null,
   extraReducers: {
     [fetchAllContacts.rejected]: (_, { payload }) => payload,
-    [setContactApi.rejected]: (_, { payload }) => payload,
-    [deleteContactApi.rejected]: (_, { payload }) => payload,
+    [setContact.rejected]: (_, { payload }) => payload,
+    [deleteContact.rejected]: (_, { payload }) => payload,
     [fetchAllContacts.pending]: () => null,
-    [setContactApi.pending]: () => null,
-    [deleteContactApi.pending]: () => null,
+    [setContact.pending]: () => null,
+    [deleteContact.pending]: () => null,
   },
 });
 
