@@ -6,7 +6,7 @@ export const Contact = styled.li`
   justify-content: space-between;
   align-items: center;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.167;
   letter-spacing: 0.01em;
   border: 1px solid #4a3934;
@@ -14,6 +14,10 @@ export const Contact = styled.li`
   &:not(:last-child) {
     margin-bottom: 8px;
   }
+
+  @media screen and (min-width: 400px) {
+    font-size: 18px;
+  } ;
 `;
 
 export const Text = styled.span`

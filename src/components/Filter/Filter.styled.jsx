@@ -5,7 +5,7 @@ export const FilterInput = styled.input`
   padding: 6px 20px;
   width: 100%;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.03em;
   border-radius: 20px;
@@ -16,4 +16,8 @@ export const FilterInput = styled.input`
   &:focus {
     border: 2px solid #77aad4;
   }
+
+  @media screen and (min-width: 400px) {
+    font-size: 18px;
+  } ;
 `;

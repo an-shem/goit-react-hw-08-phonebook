@@ -4,10 +4,14 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.167;
   letter-spacing: 0.01em;
   color: #757575;
+
+  @media screen and (min-width: 400px) {
+    font-size: 18px;
+  }
 `;
 
 export const Label = styled.label`
@@ -36,11 +40,11 @@ export const LabelName = styled.span`
 `;
 
 export const LoginButton = styled.button`
-  width: 160px;
-  height: 40px;
+  width: 140px;
+  height: 30px;
   margin: 0 auto;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.167;
   letter-spacing: 0.01em;
   color: #757575;
@@ -53,5 +57,11 @@ export const LoginButton = styled.button`
     background: #77aad4;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     color: #f2f4f3;
+  }
+
+  @media screen and (min-width: 400px) {
+    width: 160px;
+    height: 40px;
+    font-size: 18px;
   }
 `;

@@ -9,15 +9,19 @@ export const Section = styled.div`
 
 export const Title = styled.h1`
   font-weight: 700;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 32px;
   letter-spacing: 0.03em;
+
+  @media screen and (min-width: 400px) {
+    font-size: 30px;
+  }
 `;
 
 export const TitleWrap = styled.div`
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   justify-content: space-between;
   margin-bottom: 20px;
   text-align: center;
@@ -28,6 +32,11 @@ export const TitleWrap = styled.div`
   padding-bottom: 6px;
   border-bottom: 1px solid #4a3934;
   color: #4a3934;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 export const AddContactLink = styled(Link)`
