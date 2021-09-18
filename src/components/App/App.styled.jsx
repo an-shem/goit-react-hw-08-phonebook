@@ -9,6 +9,7 @@ export const AppWrapper = styled.div`
   background: url(${imgWrap});
   background-size: cover;
   background-position: right top;
+  overflow-y: scroll;
 
   @media screen and (min-width: 700px) {
     background-position: center top;

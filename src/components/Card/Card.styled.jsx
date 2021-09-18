@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const MyCard = styled.div`
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 20px;
   height: 80vh;
   padding: 20px;
   border-radius: 10px;
